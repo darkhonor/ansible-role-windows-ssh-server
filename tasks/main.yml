@@ -1,2 +1,20 @@
 ---
 # tasks file for ansible-role-windows-ssh-server
+- name: Add OpenSSH Windows Server Capability
+  ansible.windows.win_powershell:
+    script: |
+      Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
+- name: Firewall rule to allow SSH on 22/tcp
+  community.windows.win_firewall_rule:
+    name: OpenSSH-Server-In-TCP
+    localport: 22
+    action: allow
+    direction: in
+    protocol: tcp
+    enabled: true
+    state: present
+- name: Start the service
+  ansible.windows.win_service:
+    name: ssh 
+    start_mode: auto
+    state: started
