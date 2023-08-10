@@ -1,0 +1,23 @@
+galaxy_info:
+  author: Alex Ackerman
+  description: Ansible role to setup OpenSSH Server on Windows Server
+  role_name: windows_ssh_server
+
+  # issue_tracker_url: http://example.com/issue/tracker
+
+  license: MIT
+
+  min_ansible_version: '2.12'
+
+  platforms:
+    - name: Windows
+      versions:
+        - "2019"
+        - "2022"
+
+  galaxy_tags:
+    - security
+    - openssh
+    - windows
+
+dependencies: []
