@@ -15,6 +15,6 @@
     state: present
 - name: Start the service
   ansible.windows.win_service:
-    name: ssh 
+    name: ssh
     start_mode: auto
     state: started
